@@ -1,12 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './views/App';
+import Login from './views/Login';
 import reportWebVitals from './reportWebVitals';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+import Layout from 'antd/lib/layout/layout';
+
+import 'antd/dist/antd.min.css';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+
+    <Router>
+      <Layout>
+        <Routes>
+          <Route exact path="/" element={<App />} />
+          <Route exact path="/login" element={<Login />} />
+        </Routes>
+      </Layout>
+    </Router>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
